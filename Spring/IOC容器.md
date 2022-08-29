@@ -29,3 +29,7 @@
 **getBean()方法的使用<br />**
   id方式(某一类型的Bean有多个)<br />
   根据类型获取(某一类型的Bean只有一个)<br />
+## Bean管理
+概念：指的是两个操作：<br />
+>> Spring创建对象<br /> 
+>> Spring属性注入<br />
