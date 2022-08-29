@@ -19,13 +19,13 @@
    >>>- ClassPathXmlApplicationContext  ---->类路径
 
 ### IOC相关的API
- - ApplicationContext继承体系
+###### ApplicationContext继承体系
 ![Image text](https://gitee.com/songhe1122/java-framework/raw/master/%E5%9B%BE%E7%89%87/1655348011387-a37229e4-9a26-4a6b-bd3b-90789738b063.png)
- - ApplicationContext的实现类
+###### ApplicationContext的实现类
  - ClassPathXmlApplicationContext   -----> 是从类的根路径下加载配置文件(推荐使用）<br />
  - FileSystemXmlApplicationContext   ---->  是从磁盘路径上加载配置文件，配置文件可以在磁盘任意位置<br />
  
  - AnnotationConfigApplicationContext  ---->  使用注解配置容器对象时，需要使用此类来创建spring容器，用来读注解<br />
- - getBean()方法的使用<br />
+###### getBean()方法的使用<br />
   id方式(某一类型的Bean有多个)<br />
   根据类型获取(某一类型的Bean只有一个)<br />
