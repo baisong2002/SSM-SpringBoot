@@ -48,8 +48,8 @@
 <bean id="orders" class="com.bai.test.Orders"><br /> 
 <constructor-arg name="oname" value="abc"></constructor-arg><br /> 
 <constructor-arg name="address" value="中国"></constructor-arg><br /></bean><br />
-**此时spring调用的是有参构造方法，不是无参构造方法**<br />
 ```
+**此时spring调用的是有参构造方法，不是无参构造方法**<br />
 **set方法**<br /> 
 >- 方式一：<br /> 
 ```<property name="userDao" ref="userDao"></property>```
