@@ -4,3 +4,4 @@
      >- xml解析、工厂模式、反射<br /> 
      >- 耦合度逐渐降低<br />
      >- 原始模式---->工厂模式----->IOC模式
+![Image text](https://gitee.com/songhe1122/java-framework/raw/master/%E5%9B%BE%E7%89%87/1655805598765-6012cb90-244b-4199-ad0d-fbde6be57123.png)
