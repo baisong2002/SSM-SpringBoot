@@ -294,3 +294,24 @@ destroy-method:指定类中销毁方法名称<br />
 <!--引入外部属性文件-->
 <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
 ```
+#### 注解开发
+- Spring是轻代码重配置的框架，配置比较繁重，影响开发效率。注解开发是一种趋势，注解替代xml配置文件可以简化配置，提高效率
+##### 原始注解
+- Spring原始注解主要替代<Bean>的配置
+！[Image text](https://gitee.com/songhe1122/java-framework/raw/master/%E5%9B%BE%E7%89%87/1655521409268-4f65d31e-ecf5-4dc0-bcfc-5e575c910da2.png)
+**注意：**
+- 使用注解进行开发时，需要在applicationContext.xml配置文件中配置组件扫描，作用是指定那个包以及包下的Bean需要进行扫描以便识别注解配置的类、字段和方法
+```
+<!--配置组件扫描-->
+<context:component-scan base-package="com.bai"/>
+<!--如果扫描多个包则用逗号隔开
+use-default-filters="false" 表示现在不适用默认的filter，自己配置filter
+context:include-filter 设置扫描那些内容
+context:include-filter设置那些内容不被扫描-->
+<context:component-scan base-package="com.bai.User" use-default-filters="false">
+    <context:include-filter type="annotation" expression="Contorller"/>
+</context:component-scan>
+```
+**使用注解进行配置可以不写set()方法**<br />
+**注解里面的value值可以省略**<br />
+**默认是类名，首字母小写**<br />
