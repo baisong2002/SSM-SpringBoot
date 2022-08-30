@@ -5,7 +5,7 @@
      >- 耦合度逐渐降低<br />
      >- 原始模式---->工厂模式----->IOC模式
 ![Image text](https://gitee.com/songhe1122/java-framework/raw/master/%E5%9B%BE%E7%89%87/1655805598765-6012cb90-244b-4199-ad0d-fbde6be57123.png)
-## IOC接口：<br />
+# IOC接口：<br />
 - IOC思想基于IOC容器完成，IOC容器底层就是对象工厂<br /> 
 - Spring提供IOCA容器实现的两种方式(两个接口)<br /> 
    >>- (1)BeanFactoy:<br />
