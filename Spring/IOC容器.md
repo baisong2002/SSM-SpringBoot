@@ -204,3 +204,78 @@ public class bean implements FactoryBean<course> {
     }
 }
 ```
+#### xml创建对象
+##### 配置文件
+- 1、Bean标签的基本配置<br />   
+- 用于配置对象交由spring来创建<br />   
+- 默认情况下调用的是类的无参构造函数，如果没有无参构造函数则不能创建成功<br />
+- 基本属性：<br />   
+- id:Bean实例在spring容器中的唯一构造表示<br />   
+- class：Bean的全限定名称<br />
+![Image text](https://gitee.com/songhe1122/java-framework/raw/master/%E5%9B%BE%E7%89%87/1655807109545-94b796c2-999b-417f-8845-145f4abdf0cb.png)
+
+**Bean标签范围配置**<br />
+     scop:指对象的作用范围。
+***取值范围*** <br />           
+     singleton   默认值，单例的 (地址值一样,对象只有一个，加载配置文件时创建Bean) <br /> 
+实例化时机：当Spring核心文件被加载时，实例化配置的Bean实例<br />             
+**Bean的生命周期**<br />
+- 创建：当应用加载，创建容器时，对象被创建<br />
+- 运行：只要容器在，对象就一直或者<br />
+- 销毁：当应用卸载，销毁容器时，对象被销毁<br />
+prototype  多例的  (地址值不一样，对象由多个，调用getBean()时实例化Bean)<br />              
+- **Bean的生命周期**<br />     
+创建：当使用对象是，创建新的对象实例<br />  
+运行：只要对象在使用中，就一直活着<br />   
+销毁：当对象长期不使用，就被java的垃圾回收器回收了<br />
+**singletion和prototype的区别：**<br />
+singletion是单例的，prototype是多实例<br /> 
+设置scope值是singletion时，加载Spring配置文件时就会创建单实例对象<br />
+设置scope值是prototype时，不是在加载Spring配置文件时创建，在调用getBean()时创建<br /> 
+-------------------------------**基本不用**------------------------------------------------------<br />  
+request    Web项目中，spring创建一个Bean对象，将对象存入request域中<br />
+session    Web项目中，spring创建一个Bean对象，将对象存入session域中<br />
+global session  Web项目，应用在Portlet环境，如果没有该环境，相当于session<br />
+
+#### 生命周期
+通过构造器创建bean实例(无参构造)<br />   
+为bean的属性设置值和对其他bean引用(调用set方法）<br />  
+init-method:指定类中的初始化方法名称<br />   
+bean可以使用了(对象获取到了)<br />     
+destroy-method:指定类中销毁方法名称<br />
+**bean的后置处理器，bean的生命周期有七步**<br /> 
+通过构造器创建bean实例(无参构造)<br />    
+为bean的属性设置值和对其他bean引用(调用set方法）<br />    
+把bean的实例传递给bean后置处理器(postProcessBeforeInitialization)<br />  
+init-method:指定类中的初始化方法名称<br />    
+把bean的实例传递给bean后置处理器(postProcessAfterInitialization)<br /> 
+bean可以使用了(对象获取到了)<br />     
+destroy-method:指定类中销毁方法名称<br />
+#### bean自动装配<br />
+- 概念：根据指定的装配规则(属性名称或属性类型)，Spring自动将匹配的属性值进行注入<br />
+```
+<!--自动装配
+  bean标签属性autowire,配置自动装配
+  autowire属性常用两个值：
+              byName 根据属性名称进行注入，注入值bean得id值要和属性名称一致
+              byType 根据属性类型进行注入,相同类型的bean只能有一个(单例)
+-->
+<bean id="emp" class="com.bai.autowire.Emp" autowire="byType">
+ <!--手动装配-->
+ <!--<property name="dept" ref="dept"></property>-->
+</bean>
+<bean id="dept" class="com.bai.autowire.Dept"></bean>
+```
+**Bean实例化三种方式**
+- 无参构造方法实例化<br />
+- 工厂静态方法实例化<br />  
+```
+<bean id="userDao" class="com.bai.factory.StaticFactory" factory-method="getUserDao"></bean>
+```
+- 工厂实例方法实例化
+``` 
+<!--获取工厂的对象-->
+           <bean id="factory" class="com.bai.factory.DynamicFactory" ></bean>
+        <!--通过工厂获取Bean的对象-->
+<bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>
+```
