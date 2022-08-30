@@ -237,7 +237,7 @@ request    Web项目中，spring创建一个Bean对象，将对象存入request�
 session    Web项目中，spring创建一个Bean对象，将对象存入session域中<br />
 global session  Web项目，应用在Portlet环境，如果没有该环境，相当于session<br />
 
-#### 生命周期
+**生命周期**
 通过构造器创建bean实例(无参构造)<br />   
 为bean的属性设置值和对其他bean引用(调用set方法）<br />  
 init-method:指定类中的初始化方法名称<br />   
@@ -251,7 +251,7 @@ init-method:指定类中的初始化方法名称<br />
 把bean的实例传递给bean后置处理器(postProcessAfterInitialization)<br /> 
 bean可以使用了(对象获取到了)<br />     
 destroy-method:指定类中销毁方法名称<br />
-#### bean自动装配<br />
+**bean自动装配**<br />
 - 概念：根据指定的装配规则(属性名称或属性类型)，Spring自动将匹配的属性值进行注入<br />
 ```
 <!--自动装配
