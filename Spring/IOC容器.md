@@ -179,3 +179,28 @@
     </property>
 </bean>
 ```
+##### FacoryBean
+Spring里有两种bean，一种是普通的bean，另一种是工厂bean(FacoryBean)<br />
+**普通bean：**<br />
+- 在spring配置文件中，定义的类型就是返回的类型<br />
+**工厂bean：**<br />
+- 在配置文件定义bean类型可以和返回类型不一样<br />
+```
+public class bean implements FactoryBean<course> {
+    //定义返回bean的对象
+    @Override
+    public course getObject() throws Exception {
+        course course = new course();
+        course.setCname("a,b,c");
+        return course;
+    }
+    @Override
+    public Class<?> getObjectType() {
+        return null;
+    }
+    @Override
+    public boolean isSingleton() {
+        return false;
+    }
+}
+```
