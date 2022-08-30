@@ -279,3 +279,18 @@ destroy-method:指定类中销毁方法名称<br />
         <!--通过工厂获取Bean的对象-->
 <bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>
 ```
+##### 引入其他配置文件(分模块开发)
+- spring配置内容非常多，可以将部分配置拆解到其他配置文件，spring主配置文件通过import标签进行加载
+![Image text](https://gitee.com/songhe1122/java-framework/raw/master/%E5%9B%BE%E7%89%87/1655807109545-94b796c2-999b-417f-8845-145f4abdf0cb.png)
+```
+<import resource="applicationContext-user.xml"/>
+<!--配置连接池-->
+<bean id="durid" class="com.alibaba.druid.pool.DruidDataSource">
+    <property name="driverClassName" value="${driverClassName}"></property>
+    <property name="url" value="${url}"></property>
+    <property name="username" value="${userName}"></property>
+    <property name="password" value="${password}"></property>
+</bean>
+<!--引入外部属性文件-->
+<context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+```
