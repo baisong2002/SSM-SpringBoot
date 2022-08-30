@@ -37,7 +37,7 @@
 >> 基于xml方式创建对象<br />
 >> 基于xml方式注入属性<br />
 #### xml方式注入
-**依赖注入**
+##### 依赖注入
 >- 概念：是spring框架核心IOC的具体体现<br /> 
 >- 在编写程序时，通过控制反转，把对象的创建交给Spring，代码中不可能出现没有依赖的情况，IOC解耦只能降低依赖关系，不会让消除
 
@@ -60,7 +60,7 @@
 >>- 在注入文件中注入<br />
 ```<bean id="Service" class="com.bai.impl.UserServiceimpl" p:userDao-ref="userDao"></bean>```
 ![Image text](https://gitee.com/songhe1122/java-framework/raw/master/%E5%9B%BE%E7%89%87/1655347914646-270c2797-e742-496f-8ff2-f9a1aea7c57c.png)
-#### xml注入其他数据类型
+##### xml注入其他数据类型
 **Bean依赖注入数据类型**<br />  
 - 注入数据的三种类型<br />    
 >- 普通数据类型<br />   
